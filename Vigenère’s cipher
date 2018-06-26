@@ -1,0 +1,66 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+    // input
+    cout << "Please input a sentence or text for encryption: " << endl;
+    std::string input;
+    cin >> input;
+    cout << "Your input is " << input << endl;
+    cout << "Please input a key for encryption: " << endl;
+    std::string key;
+    cin >> key;
+    // so now we got a string and a key
+
+    // calculate the length of input
+    int linput = input.length();
+    int lkey = key.length();
+
+    // formalize the key
+    std::string nkey = input;
+    int ki;
+    int intinput;
+    int intnkey;
+    for (int i = 0; i <= linput; i++)
+    {
+    ki = i % lkey;
+    nkey[i]=key[ki];
+    }
+    // nkey repeated and has a length same to input
+
+    // minus & minus
+    std::string output = input;
+    for (int i = 0; i < linput; i++)
+    {
+      if (int(input[i])<97)
+    {
+        intinput = (int(input[i])-65);
+    }
+      else
+    {
+        intinput = (int(input[i])-97);
+    }
+      if (int(nkey[i])<97)
+    {
+        intnkey = (int(nkey[i])-65);
+    }
+      else
+    {
+        intnkey = (int(nkey[i])-97);
+    }
+      int plus = (intinput + intnkey) % 26;
+      if (int(output[i])<97)
+    {
+      output[i] = char(65 + plus);
+    }
+      else
+    {
+      output[i] = char(97 + plus);
+    }
+    }
+
+    cout << "Your encrypted text is " << output << endl;
+    return 0;
+}
