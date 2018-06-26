@@ -1,0 +1,32 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+int main()
+{
+    cout << "Please input a sentence or text for encryption: " << endl;
+    std::string input;
+    cin >> input;
+    cout << "Your input is " << input << endl;
+    cout << "Please input a key for encryption: " << endl;
+    std::string key;
+    cin >> key; // so now we got a string and a key
+
+    int linput = input.length(); // calculate the length of input
+    int lkey = key.length();
+
+    std::string nkey[linput];
+    int ki;
+    for (int i = 0; i < linput; i++)
+    {
+    ki = i % lkey;
+    cout << "this is i" << i << endl;
+    cout << "this is ki" << ki << endl;
+    nkey[i]=key[ki];
+
+    }
+    cout << nkey << endl;
+    return 0;
+}
